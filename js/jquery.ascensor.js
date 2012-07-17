@@ -39,7 +39,9 @@
 		
 		ChocolateAscensor:false,
 		AscensorMap: '4|3',
-		ContentCoord: '1|1 & 2|2 & 1|2 & 3|4 & 1|3 & 3|1 & 2|3 & 2|1'
+		ContentCoord: '1|1 & 2|2 & 1|2 & 3|4 & 1|3 & 3|1 & 2|3 & 2|1',
+
+		ScrollSpeed: 1000
 	},params);	
 
 
@@ -191,7 +193,7 @@
 			}
 			params.WindowsOn = NumberFinal;
 			
-			$.scrollTo(($('.'+params.AscensorName+':eq('+NumberFinal+')')), 1000, {axis: params.NavigationDirection,onAfter:function(){
+			$.scrollTo(($('.'+params.AscensorName+':eq('+NumberFinal+')')), params.ScrollSpeed, {axis: params.NavigationDirection,onAfter:function(){
 				if(params.ReturnURL==true){
 
 					if(trueURL==NumberFinal){
@@ -306,7 +308,7 @@
 		var AscensorFinal = parseInt(EtageCoupe[1]);
     	params.WindowsOn = AscensorFinal;
     	
-    	$.scrollTo(($('.'+params.AscensorName+':eq('+AscensorFinal+')')), 1000, {axis: params.NavigationDirection,onAfter:function(){
+    	$.scrollTo(($('.'+params.AscensorName+':eq('+AscensorFinal+')')), params.ScrollSpeed, {axis: params.NavigationDirection,onAfter:function(){
     		if(params.ReturnURL==true){
     			if(trueURL==AscensorFinal){
     				window.location.href='#/'+params.AscensorName+'0';
@@ -347,7 +349,7 @@
 				PrevWindows=PageNumber-1;
 			}
 	
-			$.scrollTo(($('#'+params.AscensorName+PrevWindows)),1000, {axis:params.NavigationDirection,onAfter:function(){
+			$.scrollTo(($('#'+params.AscensorName+PrevWindows)),params.ScrollSpeed, {axis:params.NavigationDirection,onAfter:function(){
 				if(params.ReturnURL==true){
 				
 				if(trueURL==PrevWindows){
@@ -390,7 +392,7 @@
 				NextWindows=0;
 			}
 				
-			$.scrollTo(($('#'+params.AscensorName+NextWindows)),1000, {axis:params.NavigationDirection,onAfter:function(){
+			$.scrollTo(($('#'+params.AscensorName+NextWindows)),params.ScrollSpeed, {axis:params.NavigationDirection,onAfter:function(){
 				if(params.ReturnURL==true){
 				
 					if(trueURL==NextWindows){
@@ -589,7 +591,7 @@
 			}	
 		}else if(CoordThisX==CoordPrevX+action){
 			params.WindowsOn=PrevContainer;
-			$.scrollTo(($('#'+params.AscensorName+PrevContainer)),1000, {axis:params.NavigationDirection,onAfter:function(){
+			$.scrollTo(($('#'+params.AscensorName+PrevContainer)),params.ScrollSpeed, {axis:params.NavigationDirection,onAfter:function(){
 				if(params.ReturnURL==true){
 				
 					if(trueURL==NextContainer){
@@ -606,7 +608,7 @@
 				$('.'+params.AscensorName+'NavigationButton:eq('+params.WindowsOn+')').css('background','#444');
 			}	
 		}else{
-			$.scrollTo(($('#'+params.AscensorName+params.WindowsOn)),1000, {axis:params.NavigationDirection});
+			$.scrollTo(($('#'+params.AscensorName+params.WindowsOn)),params.ScrollSpeed, {axis:params.NavigationDirection});
 		}
 		
 	}
